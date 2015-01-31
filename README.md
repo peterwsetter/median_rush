@@ -12,7 +12,7 @@ This analysis is performed using play-by-play data from the 2014 NFL regular sea
 ### Plays selected
 The analysis was performed on plays classified as "RUSH" and "SCRAMBLE" in the original data that were not "NO PLAY". Scrambles are included in the analysis because scrambles contribute to the traditional rushing box score and defenses prepare for this possibility in their schemes. "NO PLAY" means there was an accepted penalty that nullified the play. 
 
-## Functioning of the Script
+## Script Function
 The primary script is median_rush.R. When run, it sources the other necessary scripts to produce a data frame of players and their rushing statistics.
 
 ### acquire_data.R
@@ -29,8 +29,8 @@ The final step in the script is to create a tidy data set called tidyRush. Each 
 
 ### Final steps in median_rush.R
 After the creation of tidyRush, the final data set, medianRush, is created. Using dplyr, tidyRush is grouped by player then the following statistics are determined:
--Median rush distance (Median)
--Mean rush distance (Mean)
--Total number of carries (Carries)
--Total yards gained (Total)
-The data frame is then filtered to only include rushers with at least 20 carries and  sorted from highest median to lowest. Last, medianRush is written to a csv file.
+*Median rush distance (Median)
+*Mean rush distance (Mean)
+*Total number of carries (Carries)
+*Total yards gained (Total)
+The data frame is then filtered to only include rushers with at least 20 carries and  sorted from highest median to lowest. Last, medianRush is written to a csv file and png is made of histogram of the median yards gained.
