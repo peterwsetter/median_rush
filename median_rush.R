@@ -20,9 +20,9 @@ medianRush <- tidyRush %>%
         summarize(Median = median(Yards), 
                   Mean = round(mean(Yards), 1),
                   Carries = n(),
-                  Total = sum(Yards)) %>%
+                  TotalYards = sum(Yards)) %>%
         filter(Carries > 20) %>%
-        arrange(desc(Median))
+        arrange(desc(Median), desc(Carries))
 
 write.csv(medianRush, file = "median_rush.csv")
 
