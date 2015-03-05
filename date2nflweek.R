@@ -1,7 +1,6 @@
 date2nflweek <- function(date) {
         # Takes a date from 2014 and returns the corresponding week of the
         # NFL regular season
-        library(lubridate)
         if (date >= '2014-09-04' && date <= '2014-09-09') {
                 return(1)
         }

@@ -12,9 +12,9 @@ source("acquire_data.R")
 
 # Source create_tidy, which creates a tidy data set of all rushes
 source("create_tidy.R")
-
-# Create the final data frame of player statistics.
 library(dplyr)
+library(ggplot2)
+# Create the final data frame of player statistics.
 medianRush <- tidyRush %>%
         group_by(Player) %>%
         summarize(Median = median(Yards), 
@@ -26,7 +26,7 @@ medianRush <- tidyRush %>%
 
 write.csv(medianRush, file = "median_rush.csv")
 
-png("medianhist.png")
+png("medianhist.png", width = 300, height = 300)
 ggplot(medianRush, aes(medianRush$Median)) + 
         geom_histogram(binwidth = 1, position = "identity", alpha = 0.8) + 
         xlab("Median Yards Gained") + 
